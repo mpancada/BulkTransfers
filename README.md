@@ -40,7 +40,7 @@ The solution itself is straightforward:
 Shouldn't be difficult for a Rails developer since I am using the most recent ruby and rails versions, and not using any external gems.
 Any Mac Os, Linux or Windows Subsystem Linux should run it
 - Install ruby 3.1.2, eigher with a ruby version tool(rbenv, rvm) or in the system
-- Install bundler gem `code(gem install bundler)`
+- Install bundler gem `gem install bundler`
 
 ```
 git clone git@github.com:mpancada/BulkTransfers.git
@@ -54,6 +54,7 @@ git bundler install
 ```
 rails s
 ```
+# How to test
 Using a software to test api like https://insomnia.rest/
 
 `POST` to `localhost:3000/api/v1/bulk_transfers/aaaa-bbbb-cccc`
