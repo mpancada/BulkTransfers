@@ -54,3 +54,15 @@ git bundler install
 ```
 rails s
 ```
+Using a software to test api like https://insomnia.rest/
+
+`POST` to `localhost:3000/api/v1/bulk_transfers/aaaa-bbbb-cccc`
+
+`aaaa-bbbb-cccc` is the api_token already in the sqlite DB
+
+First request
+![image](https://user-images.githubusercontent.com/710236/177751187-4f6a8aaa-1d7b-4087-b9e8-ee250e763474.png)
+
+Second request
+![image](https://user-images.githubusercontent.com/710236/177751489-4a887301-3083-4508-b748-5d57e305fde0.png)
+
