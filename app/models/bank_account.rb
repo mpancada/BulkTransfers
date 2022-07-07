@@ -6,7 +6,6 @@ class BankAccount < ApplicationRecord
     def has_enought_balance? credit_transfers
         # .is_currency is to base all amounts to EUR, so the sum is executed properly
         # Both .is_currency and .cents_to_eur are Numeric extention methods defined in config/initializers/numeric.rb
-
         @last_amount_checked = credit_transfers.sum(0) {|a| a[:amount].to_i.is_currency(a[:currency])}
 
         @last_amount_checked <= self.balance_cents.cents_to_eur
