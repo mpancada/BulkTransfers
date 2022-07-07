@@ -7,10 +7,12 @@
 - Implemented a way to safeguard for concurrency requests for the same bank_account
 - Implemented authentication via new column on bank_accounts table: api_token
 # Files coded
-- config/initializers/numeric_extensions.rb - Extended Numeric Class for converstions 
+- config/initializers/numeric_extensions.rb - Extended Numeric Class for conversions 
 - app/controllers/api/v1/transactions_controller.rb - Service implementation
-- app/models/bank_account.rb - Has the process logic to log transactions # Should be refactor into a BusinessLogic module
+- app/models/bank_account.rb - Has the process logic to log transactions # Should be refactored into a BusinessLogic module
 - app/models/transaction.rb
+- lib/api/v1/response.rb - Just a wrapper to normalize JSON responses with field :data and :message (ex: for detailed error messages)
+
 All files have short comments about my toughts on the Adicional features
 # Solution description
 At first glance my main concerns were
@@ -26,6 +28,13 @@ For the point 1 possible solutions
 For the point 2 solution
 - I needed to find an API to get the current currency rates.
 - I need a Class to be responsible for theses currency conversions that would use the above API (Did a quick search and read on money and money-rails gem)
+
+The solution itself is straightforward:
+1. Receive request
+2. Validation authentications/permissions comparing the api_token
+3. Validates balance and update/lock it atomically
+4. Log requested credits transter into the Database
+5. Return proper responses
 
 # How to run
 Shouldn't be difficult for a Rails developer since I am using the most recent ruby and rails versions, and not using any external gems.
